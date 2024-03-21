@@ -1,0 +1,63 @@
+name: 'Deploy edge version'
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+
+  deploy:
+    runs-on: ["ubuntu-latest"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Testing
+        shell: bash
+        run: sh test.sh
+      
+      - name: Benchmark
+        shell: bash
+        run: sh ci.sh
+
+      - name: Generate benchmark result saved size badge
+        uses: schneegans/dynamic-badges-action@v1.0.0
+        with:
+          auth: ${{secrets.GIT_HUB_TOKEN}}
+          gistID: 7dc952f2c1e7f007191b59518d148b99
+          filename: ${{ github.event.repository.name }}_size_saved.json
+          label: Size saved
+          color: green
+          labelColor: green
+          message: ${{ env.BENCHMARK_FINAL_RESULT }}
+          namedLogo: size_saved
+
+      - name: Generate benchmark result size badge
+        uses: schneegans/dynamic-badges-action@v1.0.0
+        with:
+          auth: ${{secrets.GIT_HUB_TOKEN}}
+          gistID: 7dc952f2c1e7f007191b59518d148b99
+          filename: ${{ github.event.repository.name }}_image_size.json
+          label: Image Size
+          color: blue
+          labelColor: blue
+          message: ${{ env.IMAGE_SIZE }}
+          namedLogo: image_size
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: bonsquare
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: bonsquare/minimal_node:laster

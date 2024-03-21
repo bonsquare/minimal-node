@@ -1,0 +1,40 @@
+name: Pull request CI
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+
+  ci:
+    runs-on: ["ubuntu-latest"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Testing
+        shell: bash
+        run: sh test.sh
+      
+      - name: Benchmark
+        shell: bash
+        run: sh ci.sh
+
+      - name: Expose benchmark result to pull request comment
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/github-script@v2
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: ${{ github.event.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ${{ env.BENCHMARK_RESULT }}
+            })
+      
+    
