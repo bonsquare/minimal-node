@@ -13,7 +13,7 @@ echo ""
 echo "===================================="
 echo "Building node-minimal:latest"
 echo ""
-docker build $(realpath $(dirname "$0")) -t node-minimal:latest
+docker build $(realpath $(dirname "$0")) -t minimal_node:latest
 echo ""
 
 
@@ -21,7 +21,7 @@ echo "===================================="
 echo "Bench result"
 echo ""
 ORIGIN_NODE_ALPINE_SIZE=$(docker inspect -f "{{ .Size }}" node:alpine)
-NODE_MINIMAL_SIZE=$(docker inspect -f "{{ .Size }}" node-minimal:latest)
+NODE_MINIMAL_SIZE=$(docker inspect -f "{{ .Size }}" minimal_node:latest)
 SIZE_REDUCED=$((ORIGIN_NODE_ALPINE_SIZE-NODE_MINIMAL_SIZE))
 echo "Offical image node:alpine     : $(echo $ORIGIN_NODE_ALPINE_SIZE |  numfmt --to=si --format="%.2f")"
 echo "Our image node-minimal:laster : $(echo $NODE_MINIMAL_SIZE |  numfmt --to=si --format="%.2f")"

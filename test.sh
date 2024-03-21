@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 echo "===================================="
-echo "Building node-minimal:latest"
+echo "Building minimal_node:latest"
 echo ""
-docker build -t node-minimal:latest $(realpath $(dirname "$0"))
+docker build -t minimal_node:latest $(realpath $(dirname "$0"))
 echo ""
 
 echo "===================================="

@@ -1,0 +1,206 @@
+{
+  "version": "1.1",
+  "engine": "linux/amd64|Transformer|1.40.11|1b271555882eacdfb4e6598d6d0552e9b9b1449b|2024-02-02_01:36:22PM",
+  "containerized": true,
+  "host_distro": {
+    "name": "Debian GNU/Linux",
+    "version": "11",
+    "display_name": "Debian GNU/Linux 11 (bullseye)"
+  },
+  "type": "build",
+  "state": "error",
+  "error": "no.exposed.ports",
+  "target_reference": "test-test",
+  "system": {
+    "type": "",
+    "release": "",
+    "distro": {
+      "name": "",
+      "version": "",
+      "display_name": ""
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": ""
+    },
+    "size": 0,
+    "size_human": "",
+    "create_time": "",
+    "docker_version": "",
+    "architecture": "",
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 0,
+  "minified_image_size_human": "",
+  "minified_image": "",
+  "minified_image_id": "",
+  "minified_image_digest": "",
+  "minified_image_has_data": false,
+  "minified_by": 0,
+  "artifact_location": "",
+  "container_report_name": "",
+  "seccomp_profile_name": "",
+  "apparmor_profile_name": "",
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:e37a73541ae15e1e9929549a9af57face7e070f96bd4b8d14120e20751a4f871",
+      "full_name": "test-test:latest",
+      "repo_name": "test-test",
+      "version_tag": "latest",
+      "raw_tags": [
+        "test-test:latest"
+      ],
+      "create_time": "2024-03-21T11:15:51Z",
+      "new_size": 115361494,
+      "new_size_human": "115 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2024-01-27T00:30:48Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 7377074,
+          "size_human": "7.4 MB",
+          "params": "file:37a76ec18f9887751cd8473744917d08b7431fc4085097bb6a09d81b41775473 in /",
+          "command_snippet": "ADD file:37a76ec18f9887751cd8473744917d08b74...",
+          "command_all": "ADD file:37a76ec18f9887751cd8473744917d08b7431fc4085097bb6a09d81b41775473 /",
+          "target": "/",
+          "source_type": "file",
+          "inst_set_time_bucket": "2024-01-27T00:30:00Z",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 2
+        },
+        {
+          "type": "CMD",
+          "time": "2024-01-27T00:30:48Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/sh\"]\n",
+          "command_snippet": "CMD [\"/bin/sh\"]\n",
+          "command_all": "CMD [\"/bin/sh\"]\n",
+          "inst_set_time_bucket": "2024-01-27T00:30:00Z",
+          "inst_set_time_index": 0,
+          "inst_set_time_reverse_index": 2
+        },
+        {
+          "type": "RUN",
+          "time": "2024-03-21T11:01:57Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 2870028,
+          "size_human": "2.9 MB",
+          "command_snippet": "RUN apk add --no-cache libstdc++",
+          "command_all": "RUN apk add --no-cache libstdc++",
+          "system_commands": [
+            "apk add --no-cache libstdc++"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:00:00Z",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "COPY",
+          "time": "2024-03-21T11:01:58Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 5195912,
+          "size_human": "5.2 MB",
+          "params": "/usr/local/include/node /usr/local/include/node",
+          "command_snippet": "COPY /usr/local/include/node /usr/local/incl...",
+          "command_all": "COPY /usr/local/include/node /usr/local/include/node",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:00:00Z",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "COPY",
+          "time": "2024-03-21T11:01:58Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 99918192,
+          "size_human": "100 MB",
+          "params": "/usr/local/bin/node /usr/local/bin/node",
+          "command_snippet": "COPY /usr/local/bin/node /usr/local/bin/node",
+          "command_all": "COPY /usr/local/bin/node /usr/local/bin/node",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:00:00Z",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "ENTRYPOINT",
+          "time": "2024-03-21T11:01:58Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/usr/local/bin/node\"]\n",
+          "command_snippet": "ENTRYPOINT [\"/usr/local/bin/node\"]\n",
+          "command_all": "ENTRYPOINT [\"/usr/local/bin/node\"]\n",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:00:00Z",
+          "inst_set_time_index": 1,
+          "inst_set_time_reverse_index": 1
+        },
+        {
+          "type": "COPY",
+          "time": "2024-03-21T11:15:51Z",
+          "is_nop": false,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 288,
+          "size_human": "288 B",
+          "params": "app.js /usr/app/",
+          "command_snippet": "COPY app.js /usr/app/",
+          "command_all": "COPY app.js /usr/app/",
+          "comment": "buildkit.dockerfile.v0",
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:15:00Z",
+          "inst_set_time_index": 2,
+          "inst_set_time_reverse_index": 0
+        },
+        {
+          "type": "CMD",
+          "time": "2024-03-21T11:15:51Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/usr/app/app.js\"]\n",
+          "command_snippet": "CMD [\"/usr/app/app.js\"]\n",
+          "command_all": "CMD [\"/usr/app/app.js\"]\n",
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": [
+            "test-test:latest"
+          ],
+          "is_buildkit_instruction": true,
+          "inst_set_time_bucket": "2024-03-21T11:15:00Z",
+          "inst_set_time_index": 2,
+          "inst_set_time_reverse_index": 0
+        }
+      ]
+    }
+  ],
+  "image_created": false,
+  "image_build_engine": ""
+}
